@@ -28,8 +28,8 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorEmptyList() {
         //Given
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
-        //When
         ArrayList<Integer> testArray = new ArrayList<Integer>();
+        //When
         ArrayList<Integer> result = exterminator.exterminate(testArray);
         System.out.println("Testing " + result);
         //Then
@@ -39,7 +39,6 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorNormalList() {
         //Given
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
-        //When
         ArrayList<Integer> testArray = new ArrayList<Integer>();
         for(int i=-2; i<7; i++) {
             testArray.add(i);
@@ -49,10 +48,10 @@ public class CollectionTestSuite {
             expectedResult.add(i);
         }
 //        System.out.println("Expected result: " + expectedResult);
+        //When
         ArrayList<Integer> result = exterminator.exterminate(testArray);
         System.out.println("Testing " + result);
         //Then
         Assert.assertTrue(result.equals(expectedResult));
-
     }
 }
