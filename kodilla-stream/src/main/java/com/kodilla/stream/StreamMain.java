@@ -2,6 +2,7 @@ package com.kodilla.stream;
 
 import com.kodilla.stream.beautifier.PoemBeautifier;
 import com.kodilla.stream.beautifier.Rot13;
+import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.*;
 import com.kodilla.stream.reference.FunctionalCalculator;
 
@@ -27,5 +28,8 @@ public class StreamMain {
         poemBeautifier.beautify("Uppercase text", poem -> poem.toUpperCase());
         poemBeautifier.beautify("Underlined uppercase text", poem -> "_" + poem.toUpperCase().replace(" ", "_") + "_");
         poemBeautifier.beautify("Super secret password", Rot13::encode);
+
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEven(20);
     }
 }
