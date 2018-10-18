@@ -9,31 +9,31 @@ public class WorldTestSuite {
     @Test
     public void testGetPeopleQuantity() {
         //Given
-        Country france = new Country("France", new BigDecimal(1));
-        Country germany = new Country("Germany", new BigDecimal(2));
-        Country italy = new Country("Italy", new BigDecimal(3));
-        Country ecuador = new Country("Ecuador", new BigDecimal(4));
-        Country venezuela = new Country("Venezuela", new BigDecimal(5));
-        Country peru = new Country("Peru", new BigDecimal(6));
-        Country japan = new Country("Japan", new BigDecimal(7));
-        Country china = new Country("China", new BigDecimal(8));
-        Country india = new Country("India", new BigDecimal(9));
-        Continent europe = new Continent("Europe");
-        europe.addCountry(france);
-        europe.addCountry(germany);
-        europe.addCountry(italy);
-        Continent southAmerica = new Continent("South America");
-        southAmerica.addCountry(ecuador);
-        southAmerica.addCountry(venezuela);
-        southAmerica.addCountry(peru);
-        Continent asia = new Continent("Asia");
-        asia.addCountry(japan);
-        asia.addCountry(china);
-        asia.addCountry(india);
+        Country country1 = new Country("France", new BigDecimal(1));
+        Country country2 = new Country("Germany", new BigDecimal(2));
+        Country country3 = new Country("Italy", new BigDecimal(3));
+        Country country4 = new Country("Ecuador", new BigDecimal(4));
+        Country country5 = new Country("Venezuela", new BigDecimal(5));
+        Country country6 = new Country("Peru", new BigDecimal(6));
+        Country country7 = new Country("Japan", new BigDecimal(7));
+        Country country8 = new Country("China", new BigDecimal(8));
+        Country country9 = new Country("India", new BigDecimal(9));
+        Continent continent1 = new Continent("Europe");
+        continent1.addCountry(country1);
+        continent1.addCountry(country2);
+        continent1.addCountry(country3);
+        Continent continent2 = new Continent("South America");
+        continent2.addCountry(country4);
+        continent2.addCountry(country5);
+        continent2.addCountry(country6);
+        Continent continent3 = new Continent("Asia");
+        continent3.addCountry(country7);
+        continent3.addCountry(country8);
+        continent3.addCountry(country9);
         World world = new World();
-        world.addContinent(europe);
-        world.addContinent(southAmerica);
-        world.addContinent(asia);
+        world.addContinent(continent1);
+        world.addContinent(continent2);
+        world.addContinent(continent3);
 
         //When
         BigDecimal worldPeopleQuantity = world.getPeopleQuantity();
