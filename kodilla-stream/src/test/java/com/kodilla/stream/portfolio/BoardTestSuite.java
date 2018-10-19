@@ -146,7 +146,7 @@ public class BoardTestSuite {
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(t -> t.getCreated().until(LocalDate.now(), DAYS))
-                .peek(System.out::println)
+//                .peek(System.out::println)
                 .mapToDouble(d -> (double)d)
                 .average()
                 .getAsDouble();
