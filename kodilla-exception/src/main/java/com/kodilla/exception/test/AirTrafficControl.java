@@ -18,10 +18,10 @@ public class AirTrafficControl {
         listOfFlights.add(flight2);
         listOfFlights.add(flight3);
         for(Flight flight: listOfFlights) {
+            System.out.println("Passengers waiting for flight from " +
+                    flight.getDepartureAirport() + " to " +
+                    flight.getArrivalAirport());
             try {
-                System.out.println("Passengers waiting for flight from " +
-                        flight.getDepartureAirport() + " to " +
-                        flight.getArrivalAirport());
                 if (radar.findFlight(flight)) {
                     System.out.println("Please check-in and proceed to the gate.");
                 } else {
