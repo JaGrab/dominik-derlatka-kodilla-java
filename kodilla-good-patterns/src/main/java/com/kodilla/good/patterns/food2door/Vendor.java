@@ -17,8 +17,11 @@ public class Vendor implements Supplier {
             for (OrderService service: orderServiceList) {
                 service.processOrder(order);
             }
+            System.out.println("Order processed properly\n");
             return true;
         } else {
+            System.out.println("No ordering routine for " + getName());
+            System.out.println("Order cancelled\n");
             return false;
         }
     }
