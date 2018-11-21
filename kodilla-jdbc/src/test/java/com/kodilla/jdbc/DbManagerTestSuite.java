@@ -51,6 +51,7 @@ public class DbManagerTestSuite {
         ResultSet rs = statement.executeQuery(sqlQuery);
         // Then
         int counter = 0;
+        System.out.println("\nUsers with 2 or more posts:");
         while(rs.next()) {
             System.out.println(rs.getString("FIRSTNAME") + ", " +
                     rs.getString("LASTNAME"));
