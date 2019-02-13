@@ -46,6 +46,13 @@ public class CrudAppTestSuite {
         Thread.sleep(2000);
         return taskName;
     }
+    @Test
+    public void shouldCreateTrelloCard() throws InterruptedException {
+        String taskName = createCrudAppTestTask();
+        sendTestTaskToTrello(taskName);
+        assertTrue(checkTaskExistsInTrello(taskName));
+        deleteCrudAppTestTask(taskName);
+    }
     private void sendTestTaskToTrello(String taskName) throws InterruptedException {
         driver.navigate().refresh();
         while(!driver.findElement(By.xpath("//select[1]")).isDisplayed());
@@ -79,14 +86,13 @@ public class CrudAppTestSuite {
                 .forEach(aHref -> aHref.click());
         Thread.sleep(7000);
         result = driverTrello.findElements(By.xpath("//span")).stream()
-//                .peek(System.out::println)
                 .filter(theSpan -> theSpan.getText().contains(taskName))
                 .collect(Collectors.toList())
                 .size() > 0;
         driverTrello.close();
         return result;
     }
-    public void deleteCrudAppTestTask(String taskName) throws InterruptedException {
+    private void deleteCrudAppTestTask(String taskName) throws InterruptedException {
         driver.navigate().refresh();
         while(!driver.findElement(By.xpath("//select[1]")).isDisplayed());
         driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
@@ -99,12 +105,5 @@ public class CrudAppTestSuite {
                     buttonDelete.click();
                 });
         Thread.sleep(5000);
-    }
-    @Test
-    public void shouldCreateTrelloCard() throws InterruptedException {
-        String taskName = createCrudAppTestTask();
-        sendTestTaskToTrello(taskName);
-        assertTrue(checkTaskExistsInTrello(taskName));
-        deleteCrudAppTestTask(taskName);
     }
 }
